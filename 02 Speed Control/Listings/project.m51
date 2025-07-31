@@ -1,0 +1,158 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/18/2022  10:50:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\project PRINT (.\Listings\project.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     003BH     UNIT         ?PR?TIMER0_ROUTINE?MAIN
+            CODE    0049H     0017H     UNIT         ?PR?TIMER0_INIT?MAIN
+            CODE    0060H     0011H     UNIT         ?PR?CAR_GO?MAIN
+            CODE    0071H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER0_INIT?MAIN
+  +--> ?PR?CAR_GO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:000EH         PUBLIC        Timer0_Routine
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/18/2022  10:50:54  PAGE 2
+
+
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        counter
+  B:0080H.7       PUBLIC        EN1A
+  B:00A8H.7       PUBLIC        EA
+  B:00B0H.7       PUBLIC        EN2A
+  B:0080H.2       PUBLIC        EN1B
+  B:00B0H.2       PUBLIC        EN2B
+  C:0003H         PUBLIC        main
+  C:0049H         PUBLIC        Timer0_Init
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  D:0009H         PUBLIC        compare
+  C:0060H         PUBLIC        car_go
+  B:0080H.5       PUBLIC        IN11
+  B:00B0H.5       PUBLIC        IN21
+  B:0080H.6       PUBLIC        IN12
+  B:00B0H.6       PUBLIC        IN22
+  B:0080H.3       PUBLIC        IN13
+  B:00B0H.3       PUBLIC        IN23
+  B:0080H.4       PUBLIC        IN14
+  B:00B0H.4       PUBLIC        IN24
+  -------         PROC          CAR_GO
+  C:0060H         LINE#         19
+  C:0060H         LINE#         20
+  C:0060H         LINE#         21
+  C:0062H         LINE#         22
+  C:0064H         LINE#         23
+  C:0066H         LINE#         24
+  C:0068H         LINE#         25
+  C:006AH         LINE#         26
+  C:006CH         LINE#         27
+  C:006EH         LINE#         28
+  C:0070H         LINE#         29
+  -------         ENDPROC       CAR_GO
+  -------         PROC          TIMER0_INIT
+  C:0049H         LINE#         33
+  C:0049H         LINE#         34
+  C:0049H         LINE#         35
+  C:004CH         LINE#         36
+  C:004FH         LINE#         37
+  C:0052H         LINE#         38
+  C:0055H         LINE#         39
+  C:0057H         LINE#         40
+  C:0059H         LINE#         41
+  C:005BH         LINE#         42
+  C:005DH         LINE#         43
+  C:005FH         LINE#         44
+  -------         ENDPROC       TIMER0_INIT
+  -------         PROC          TIMER0_ROUTINE
+  C:000EH         LINE#         48
+  C:0012H         LINE#         51
+  C:0015H         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/18/2022  10:50:54  PAGE 3
+
+
+  C:0018H         LINE#         53
+  C:001BH         LINE#         54
+  C:001DH         LINE#         55
+  C:0028H         LINE#         56
+  C:0028H         LINE#         57
+  C:002BH         LINE#         58
+  C:002BH         LINE#         59
+  C:0032H         LINE#         60
+  C:0032H         LINE#         61
+  C:0034H         LINE#         62
+  C:0036H         LINE#         63
+  C:0038H         LINE#         64
+  C:003AH         LINE#         65
+  C:003CH         LINE#         67
+  C:003CH         LINE#         68
+  C:003EH         LINE#         69
+  C:0040H         LINE#         70
+  C:0042H         LINE#         71
+  C:0044H         LINE#         72
+  C:0044H         LINE#         73
+  -------         ENDPROC       TIMER0_ROUTINE
+  -------         PROC          MAIN
+  C:0003H         LINE#         75
+  C:0003H         LINE#         76
+  C:0003H         LINE#         77
+  C:0006H         LINE#         79
+  C:0006H         LINE#         80
+  C:0006H         LINE#         81
+  C:0009H         LINE#         82
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=11.0 xdata=0 code=125
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

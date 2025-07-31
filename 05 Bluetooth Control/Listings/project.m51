@@ -1,0 +1,474 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/22/2022  14:27:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\car.obj, .\Objects\motor.obj TO .\Objects\project PRINT (.\Lis
+>> tings\project.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\car.obj (CAR)
+  .\Objects\motor.obj (MOTOR)
+  D:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?CAR
+            DATA    000AH     0001H     UNIT         ?DT?MAIN
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0014H     UNIT         ?PR?TIMER0_INIT?CAR
+                    0022H     0001H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0045H     UNIT         ?PR?UART_ROUTINE?MAIN
+            CODE    006BH     0044H     UNIT         ?PR?_RECEIVE?MAIN
+            CODE    00AFH     0038H     UNIT         ?PR?TIMER0_ROUTINE?CAR
+            CODE    00E7H     0018H     UNIT         ?PR?UART_INIT?MAIN
+            CODE    00FFH     000FH     UNIT         ?PR?CAR_GO?CAR
+            CODE    010EH     000FH     UNIT         ?PR?CAR_BACK?CAR
+            CODE    011DH     000FH     UNIT         ?PR?CAR_STOP?CAR
+            CODE    012CH     000FH     UNIT         ?PR?CAR_LEFTGO?CAR
+            CODE    013BH     000FH     UNIT         ?PR?CAR_RIGHTGO?CAR
+            CODE    014AH     000FH     UNIT         ?PR?CAR_LEFTBACK?CAR
+            CODE    0159H     000FH     UNIT         ?PR?CAR_RIGHTBACK?CAR
+            CODE    0168H     000FH     UNIT         ?PR?CAR_RIGHTSTOP?CAR
+            CODE    0177H     000FH     UNIT         ?PR?CAR_LEFTSTOP?CAR
+            CODE    0186H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0192H     0005H     UNIT         ?PR?LF_MOTOR_GO?MOTOR
+            CODE    0197H     0005H     UNIT         ?PR?LF_MOTOR_BACK?MOTOR
+            CODE    019CH     0005H     UNIT         ?PR?LF_MOTOR_STOP?MOTOR
+            CODE    01A1H     0005H     UNIT         ?PR?RF_MOTOR_GO?MOTOR
+            CODE    01A6H     0005H     UNIT         ?PR?RF_MOTOR_BACK?MOTOR
+            CODE    01ABH     0005H     UNIT         ?PR?RF_MOTOR_STOP?MOTOR
+            CODE    01B0H     0005H     UNIT         ?PR?LR_MOTOR_GO?MOTOR
+            CODE    01B5H     0005H     UNIT         ?PR?LR_MOTOR_BACK?MOTOR
+            CODE    01BAH     0005H     UNIT         ?PR?LR_MOTOR_STOP?MOTOR
+            CODE    01BFH     0005H     UNIT         ?PR?RR_MOTOR_GO?MOTOR
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 2
+
+
+            CODE    01C4H     0005H     UNIT         ?PR?RR_MOTOR_BACK?MOTOR
+            CODE    01C9H     0005H     UNIT         ?PR?RR_MOTOR_STOP?MOTOR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?UART_ROUTINE?MAIN
+  +--> ?PR?CAR_STOP?CAR
+  +--> ?PR?_RECEIVE?MAIN
+
+?PR?CAR_STOP?CAR
+  +--> ?PR?RR_MOTOR_STOP?MOTOR
+  +--> ?PR?LR_MOTOR_STOP?MOTOR
+  +--> ?PR?RF_MOTOR_STOP?MOTOR
+  +--> ?PR?LF_MOTOR_STOP?MOTOR
+
+?PR?_RECEIVE?MAIN
+  +--> ?PR?CAR_GO?CAR
+  +--> ?PR?CAR_LEFTGO?CAR
+  +--> ?PR?CAR_RIGHTGO?CAR
+  +--> ?PR?CAR_BACK?CAR
+  +--> ?PR?CAR_STOP?CAR
+  +--> ?PR?CAR_LEFTSTOP?CAR
+  +--> ?PR?CAR_RIGHTSTOP?CAR
+
+?PR?CAR_GO?CAR
+  +--> ?PR?LF_MOTOR_GO?MOTOR
+  +--> ?PR?RF_MOTOR_GO?MOTOR
+  +--> ?PR?LR_MOTOR_GO?MOTOR
+  +--> ?PR?RR_MOTOR_GO?MOTOR
+
+?PR?CAR_LEFTGO?CAR
+  +--> ?PR?RF_MOTOR_GO?MOTOR
+  +--> ?PR?RR_MOTOR_GO?MOTOR
+  +--> ?PR?LF_MOTOR_STOP?MOTOR
+  +--> ?PR?LR_MOTOR_STOP?MOTOR
+
+?PR?CAR_RIGHTGO?CAR
+  +--> ?PR?LF_MOTOR_GO?MOTOR
+  +--> ?PR?LR_MOTOR_GO?MOTOR
+  +--> ?PR?RF_MOTOR_STOP?MOTOR
+  +--> ?PR?RR_MOTOR_STOP?MOTOR
+
+?PR?CAR_BACK?CAR
+  +--> ?PR?LF_MOTOR_BACK?MOTOR
+  +--> ?PR?RF_MOTOR_BACK?MOTOR
+  +--> ?PR?LR_MOTOR_BACK?MOTOR
+  +--> ?PR?RR_MOTOR_BACK?MOTOR
+
+?PR?CAR_LEFTSTOP?CAR
+  +--> ?PR?LF_MOTOR_BACK?MOTOR
+  +--> ?PR?LR_MOTOR_BACK?MOTOR
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 3
+
+
+  +--> ?PR?RF_MOTOR_GO?MOTOR
+  +--> ?PR?RR_MOTOR_GO?MOTOR
+
+?PR?CAR_RIGHTSTOP?CAR
+  +--> ?PR?LF_MOTOR_GO?MOTOR
+  +--> ?PR?LR_MOTOR_GO?MOTOR
+  +--> ?PR?RF_MOTOR_BACK?MOTOR
+  +--> ?PR?RR_MOTOR_BACK?MOTOR
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER0_INIT?CAR
+  +--> ?PR?UART_INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:00E7H         PUBLIC        Uart_Init
+  B:00A8H.4       PUBLIC        ES
+  B:0098H.0       PUBLIC        RI
+  C:0003H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:000AH         PUBLIC        receiveData
+  C:006BH         PUBLIC        _receive
+  C:0026H         PUBLIC        Uart_Routine
+  -------         PROC          _RECEIVE
+  D:0007H         SYMBOL        m
+  C:006BH         LINE#         6
+  C:006BH         LINE#         7
+  C:006BH         LINE#         8
+  C:0099H         LINE#         9
+  C:0099H         LINE#         10
+  C:0099H         LINE#         11
+  C:009CH         LINE#         12
+  C:009CH         LINE#         14
+  C:009CH         LINE#         15
+  C:009FH         LINE#         16
+  C:009FH         LINE#         18
+  C:009FH         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 4
+
+
+  C:00A2H         LINE#         20
+  C:00A2H         LINE#         22
+  C:00A2H         LINE#         23
+  C:00A5H         LINE#         24
+  C:00A5H         LINE#         26
+  C:00A5H         LINE#         27
+  C:00A8H         LINE#         28
+  C:00A8H         LINE#         30
+  C:00A8H         LINE#         31
+  C:00ABH         LINE#         32
+  C:00ABH         LINE#         34
+  C:00ABH         LINE#         35
+  C:00AEH         LINE#         36
+  C:00AEH         LINE#         37
+  C:00AEH         LINE#         38
+  -------         ENDPROC       _RECEIVE
+  -------         PROC          UART_INIT
+  C:00E7H         LINE#         39
+  C:00E7H         LINE#         40
+  C:00E7H         LINE#         41
+  C:00EAH         LINE#         42
+  C:00EDH         LINE#         43
+  C:00F0H         LINE#         44
+  C:00F3H         LINE#         45
+  C:00F6H         LINE#         46
+  C:00F8H         LINE#         47
+  C:00FAH         LINE#         48
+  C:00FCH         LINE#         49
+  C:00FEH         LINE#         50
+  -------         ENDPROC       UART_INIT
+  -------         PROC          UART_ROUTINE
+  C:0026H         LINE#         51
+  C:0043H         LINE#         53
+  C:0046H         LINE#         54
+  C:0048H         LINE#         55
+  C:004BH         LINE#         56
+  C:0050H         LINE#         57
+  -------         ENDPROC       UART_ROUTINE
+  -------         PROC          MAIN
+  C:0003H         LINE#         58
+  C:0003H         LINE#         59
+  C:0003H         LINE#         60
+  C:0006H         LINE#         61
+  C:0009H         LINE#         62
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        CAR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:00AFH         PUBLIC        Timer0_Routine
+  D:0080H         PUBLIC        P0
+  C:0168H         PUBLIC        car_rightstop
+  D:00B0H         PUBLIC        P3
+  B:0080H.7       PUBLIC        EN1A
+  B:00A8H.7       PUBLIC        EA
+  B:00B0H.7       PUBLIC        EN2A
+  B:0080H.2       PUBLIC        EN1B
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 5
+
+
+  B:00B0H.2       PUBLIC        EN2B
+  C:0177H         PUBLIC        car_leftstop
+  C:013BH         PUBLIC        car_rightgo
+  D:0008H         PUBLIC        speed
+  C:012CH         PUBLIC        car_leftgo
+  C:010EH         PUBLIC        car_back
+  C:000EH         PUBLIC        Timer0_Init
+  D:0089H         PUBLIC        TMOD
+  D:0009H         PUBLIC        counter1
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  C:0159H         PUBLIC        car_rightback
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  C:014AH         PUBLIC        car_leftback
+  C:011DH         PUBLIC        car_stop
+  C:00FFH         PUBLIC        car_go
+  -------         PROC          TIMER0_INIT
+  C:000EH         LINE#         21
+  C:000EH         LINE#         22
+  C:000EH         LINE#         23
+  C:0011H         LINE#         24
+  C:0014H         LINE#         25
+  C:0017H         LINE#         26
+  C:0019H         LINE#         27
+  C:001BH         LINE#         28
+  C:001DH         LINE#         29
+  C:001FH         LINE#         30
+  C:0021H         LINE#         31
+  -------         ENDPROC       TIMER0_INIT
+  -------         PROC          TIMER0_ROUTINE
+  C:00AFH         LINE#         32
+  C:00B3H         LINE#         35
+  C:00B6H         LINE#         36
+  C:00B9H         LINE#         38
+  C:00BBH         LINE#         39
+  C:00C6H         LINE#         40
+  C:00C6H         LINE#         41
+  C:00C9H         LINE#         42
+  C:00C9H         LINE#         43
+  C:00D0H         LINE#         44
+  C:00D0H         LINE#         45
+  C:00D2H         LINE#         46
+  C:00D4H         LINE#         47
+  C:00D6H         LINE#         48
+  C:00D8H         LINE#         49
+  C:00DAH         LINE#         51
+  C:00DAH         LINE#         52
+  C:00DCH         LINE#         53
+  C:00DEH         LINE#         54
+  C:00E0H         LINE#         55
+  C:00E2H         LINE#         56
+  C:00E2H         LINE#         57
+  -------         ENDPROC       TIMER0_ROUTINE
+  -------         PROC          CAR_GO
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 6
+
+
+  C:00FFH         LINE#         58
+  C:00FFH         LINE#         59
+  C:00FFH         LINE#         60
+  C:0102H         LINE#         61
+  C:0105H         LINE#         62
+  C:0108H         LINE#         63
+  C:010BH         LINE#         64
+  -------         ENDPROC       CAR_GO
+  -------         PROC          CAR_BACK
+  C:010EH         LINE#         66
+  C:010EH         LINE#         67
+  C:010EH         LINE#         68
+  C:0111H         LINE#         69
+  C:0114H         LINE#         70
+  C:0117H         LINE#         71
+  C:011AH         LINE#         72
+  -------         ENDPROC       CAR_BACK
+  -------         PROC          CAR_STOP
+  C:011DH         LINE#         74
+  C:011DH         LINE#         75
+  C:011DH         LINE#         76
+  C:0120H         LINE#         77
+  C:0123H         LINE#         78
+  C:0126H         LINE#         79
+  C:0129H         LINE#         80
+  -------         ENDPROC       CAR_STOP
+  -------         PROC          CAR_LEFTGO
+  C:012CH         LINE#         82
+  C:012CH         LINE#         83
+  C:012CH         LINE#         84
+  C:012FH         LINE#         85
+  C:0132H         LINE#         86
+  C:0135H         LINE#         87
+  C:0138H         LINE#         88
+  -------         ENDPROC       CAR_LEFTGO
+  -------         PROC          CAR_RIGHTGO
+  C:013BH         LINE#         90
+  C:013BH         LINE#         91
+  C:013BH         LINE#         92
+  C:013EH         LINE#         93
+  C:0141H         LINE#         94
+  C:0144H         LINE#         95
+  C:0147H         LINE#         96
+  -------         ENDPROC       CAR_RIGHTGO
+  -------         PROC          CAR_LEFTBACK
+  C:014AH         LINE#         98
+  C:014AH         LINE#         99
+  C:014AH         LINE#         100
+  C:014DH         LINE#         101
+  C:0150H         LINE#         102
+  C:0153H         LINE#         103
+  C:0156H         LINE#         104
+  -------         ENDPROC       CAR_LEFTBACK
+  -------         PROC          CAR_RIGHTBACK
+  C:0159H         LINE#         106
+  C:0159H         LINE#         107
+  C:0159H         LINE#         108
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 7
+
+
+  C:015CH         LINE#         109
+  C:015FH         LINE#         110
+  C:0162H         LINE#         111
+  C:0165H         LINE#         112
+  -------         ENDPROC       CAR_RIGHTBACK
+  -------         PROC          CAR_RIGHTSTOP
+  C:0168H         LINE#         114
+  C:0168H         LINE#         115
+  C:0168H         LINE#         116
+  C:016BH         LINE#         117
+  C:016EH         LINE#         118
+  C:0171H         LINE#         119
+  C:0174H         LINE#         120
+  -------         ENDPROC       CAR_RIGHTSTOP
+  -------         PROC          CAR_LEFTSTOP
+  C:0177H         LINE#         122
+  C:0177H         LINE#         123
+  C:0177H         LINE#         124
+  C:017AH         LINE#         125
+  C:017DH         LINE#         126
+  C:0180H         LINE#         127
+  C:0183H         LINE#         128
+  -------         ENDPROC       CAR_LEFTSTOP
+  -------         ENDMOD        CAR
+
+  -------         MODULE        MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00B0H         PUBLIC        P3
+  C:0197H         PUBLIC        LF_motor_back
+  C:01A6H         PUBLIC        RF_motor_back
+  C:01B5H         PUBLIC        LR_motor_back
+  C:01C4H         PUBLIC        RR_motor_back
+  C:019CH         PUBLIC        LF_motor_stop
+  C:01ABH         PUBLIC        RF_motor_stop
+  C:01BAH         PUBLIC        LR_motor_stop
+  C:0192H         PUBLIC        LF_motor_go
+  C:01C9H         PUBLIC        RR_motor_stop
+  C:01A1H         PUBLIC        RF_motor_go
+  C:01B0H         PUBLIC        LR_motor_go
+  C:01BFH         PUBLIC        RR_motor_go
+  B:0080H.5       PUBLIC        IN11
+  B:00B0H.5       PUBLIC        IN21
+  B:0080H.6       PUBLIC        IN12
+  B:00B0H.6       PUBLIC        IN22
+  B:0080H.3       PUBLIC        IN13
+  B:00B0H.3       PUBLIC        IN23
+  B:0080H.4       PUBLIC        IN14
+  B:00B0H.4       PUBLIC        IN24
+  -------         PROC          LF_MOTOR_GO
+  C:0192H         LINE#         18
+  C:0192H         LINE#         19
+  -------         ENDPROC       LF_MOTOR_GO
+  -------         PROC          LF_MOTOR_BACK
+  C:0197H         LINE#         20
+  C:0197H         LINE#         21
+  -------         ENDPROC       LF_MOTOR_BACK
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/22/2022  14:27:04  PAGE 8
+
+
+  -------         PROC          LF_MOTOR_STOP
+  C:019CH         LINE#         22
+  C:019CH         LINE#         23
+  -------         ENDPROC       LF_MOTOR_STOP
+  -------         PROC          RF_MOTOR_GO
+  C:01A1H         LINE#         24
+  C:01A1H         LINE#         25
+  -------         ENDPROC       RF_MOTOR_GO
+  -------         PROC          RF_MOTOR_BACK
+  C:01A6H         LINE#         26
+  C:01A6H         LINE#         27
+  -------         ENDPROC       RF_MOTOR_BACK
+  -------         PROC          RF_MOTOR_STOP
+  C:01ABH         LINE#         28
+  C:01ABH         LINE#         29
+  -------         ENDPROC       RF_MOTOR_STOP
+  -------         PROC          LR_MOTOR_GO
+  C:01B0H         LINE#         30
+  C:01B0H         LINE#         31
+  -------         ENDPROC       LR_MOTOR_GO
+  -------         PROC          LR_MOTOR_BACK
+  C:01B5H         LINE#         32
+  C:01B5H         LINE#         33
+  -------         ENDPROC       LR_MOTOR_BACK
+  -------         PROC          LR_MOTOR_STOP
+  C:01BAH         LINE#         34
+  C:01BAH         LINE#         35
+  -------         ENDPROC       LR_MOTOR_STOP
+  -------         PROC          RR_MOTOR_GO
+  C:01BFH         LINE#         36
+  C:01BFH         LINE#         37
+  -------         ENDPROC       RR_MOTOR_GO
+  -------         PROC          RR_MOTOR_BACK
+  C:01C4H         LINE#         38
+  C:01C4H         LINE#         39
+  -------         ENDPROC       RR_MOTOR_BACK
+  -------         PROC          RR_MOTOR_STOP
+  C:01C9H         LINE#         40
+  C:01C9H         LINE#         41
+  -------         ENDPROC       RR_MOTOR_STOP
+  -------         ENDMOD        MOTOR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CAR_LEFTBACK?CAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CAR_RIGHTBACK?CAR
+
+Program Size: data=12.0 xdata=0 code=461
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
